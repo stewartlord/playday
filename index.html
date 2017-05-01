@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Playday - Stewart Lord</title>
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="playday.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="header">
+          <div class="controls right">
+            <span class="nav prev">&lsaquo;</span>
+            <span class="nav next">&rsaquo;</span>
+          </div>
+          <span class="title"></span>
+        </h1>
+        <h5 class="desc light red-text text-lighten-3 center-on-small-only"></h5>
+      </div>
+    </header>
+    <div class="error deep-orange grey-text text-lighten-4 center"></div>
+    <div class="screen"></div>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="playlist col s12"></div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container grey-text text-lighten-4">
+          <a class="grey-text text-lighten-4" href="mailto:stew@offbynone.com">stew@offbynone.com</a>
+          <a class="what grey-text text-lighten-4 right" href="#!">What does this do?</a>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="jquery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="player.js/dist/player-0.0.11.min.js"></script>
+    <script type="text/javascript" src="playday.js"></script>
+    <script>
+      // startup our video interface!
+      new Playday({
+        baseUrl:  'https://riipen.mediacore.tv/api2/',
+        username: 'riipenchallenge@mediacore.com',
+        password: 'riipenchallenge',
+        nodes:    {
+          screen:   $('.screen'),
+          playlist: $('.playlist'),
+          title:    $('header .title'),
+          desc:     $('header .desc'),
+          error:    $('.error'),
+          prev:     $('.prev'),
+          next:     $('.next'),
+          what:     $('.what')
+        }
+      }).load();
+    </script>
+  </body>
+</html>
